@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-label="Alojamiento entre las sierras de Minas">
+  <defs>
+    <linearGradient id="cabinSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e2924a"/>
+      <stop offset="45%" stop-color="#c3d2bb"/>
+      <stop offset="100%" stop-color="#1f3324"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#cabinSky)"/>
+  <path d="M0 700 L260 500 L460 660 L640 480 L900 660 L900 900 L0 900 Z" fill="#3c5238" opacity="0.85"/>
+  <path d="M0 820 L900 820 L900 1200 L0 1200 Z" fill="#243522"/>
+  <g>
+    <rect x="330" y="760" width="260" height="200" fill="#8a6a4d"/>
+    <polygon points="310,760 460,650 610,760" fill="#152219"/>
+    <rect x="420" y="850" width="70" height="110" fill="#152219"/>
+    <rect x="355" y="800" width="46" height="46" fill="#f0b76b" opacity="0.9"/>
+    <rect x="519" y="800" width="46" height="46" fill="#f0b76b" opacity="0.9"/>
+  </g>
+  <g fill="#243522" opacity="0.9">
+    <path d="M180 960 q14 -60 28 0 q14 -84 28 0 q14 -60 28 0 l-6 30 h-72 z"/>
+    <path d="M660 940 q16 -66 32 0 q16 -92 32 0 q16 -66 32 0 l-6 34 h-84 z"/>
+  </g>
+</svg>

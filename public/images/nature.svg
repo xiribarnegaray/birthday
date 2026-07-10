@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-label="Colinas verdes con líneas topográficas al amanecer">
+  <defs>
+    <linearGradient id="natureSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf5e9"/>
+      <stop offset="45%" stop-color="#c3d2bb"/>
+      <stop offset="100%" stop-color="#1f3324"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#natureSky)"/>
+  <g fill="none" stroke="#1f3324" stroke-width="2.5" opacity="0.28">
+    <path d="M-50 500 C 150 460, 300 540, 450 500 C 600 460, 750 540, 950 500"/>
+    <path d="M-50 560 C 150 520, 300 600, 450 560 C 600 520, 750 600, 950 560"/>
+    <path d="M-50 620 C 150 580, 300 660, 450 620 C 600 580, 750 660, 950 620"/>
+    <path d="M-50 680 C 150 640, 300 720, 450 680 C 600 640, 750 720, 950 680"/>
+  </g>
+  <path d="M0 760 C 200 660, 350 820, 520 720 C 680 630, 780 760, 900 700 L900 1200 L0 1200 Z" fill="#3c5238"/>
+  <path d="M0 880 C 220 800, 400 960, 600 870 C 740 810, 820 900, 900 860 L900 1200 L0 1200 Z" fill="#243522"/>
+  <path d="M0 1000 C 250 940, 500 1060, 750 990 C 820 970, 860 1000, 900 990 L900 1200 L0 1200 Z" fill="#152219"/>
+  <g fill="#8aa287" opacity="0.7">
+    <path d="M150 980 q10 -40 20 0 q10 -60 20 0 q10 -40 20 0 l-4 20 h-56 z"/>
+    <path d="M650 940 q12 -46 24 0 q12 -68 24 0 q12 -46 24 0 l-4 22 h-68 z"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-label="Sendero serpenteante entre cerros">
+  <defs>
+    <linearGradient id="trekSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e7dcc3"/>
+      <stop offset="60%" stop-color="#8aa287"/>
+      <stop offset="100%" stop-color="#1f3324"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#trekSky)"/>
+  <path d="M0 500 L260 260 L430 460 L620 220 L900 500 L900 700 L0 700 Z" fill="#243522" opacity="0.75"/>
+  <path d="M0 620 L300 400 L500 600 L700 380 L900 620 L900 800 L0 800 Z" fill="#152219" opacity="0.85"/>
+  <path
+    d="M120 1180 C 220 1080, 180 980, 300 900 C 420 820, 380 720, 480 640 C 580 560, 560 460, 660 380"
+    fill="none"
+    stroke="#f0b76b"
+    stroke-width="14"
+    stroke-linecap="round"
+    stroke-dasharray="2 34"
+    opacity="0.95"
+  />
+  <g fill="#faf5e9">
+    <circle cx="120" cy="1180" r="12"/>
+    <circle cx="300" cy="900" r="10"/>
+    <circle cx="480" cy="640" r="10"/>
+    <circle cx="660" cy="380" r="12"/>
+  </g>
+  <path d="M0 900 C 200 840, 400 960, 600 890 C 720 850, 820 900, 900 880 L900 1200 L0 1200 Z" fill="#0f1a10"/>
+</svg>

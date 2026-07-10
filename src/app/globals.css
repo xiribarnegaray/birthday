@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Paleta por defecto — se sobreescribe en tiempo de ejecución desde
+     giftContent.theme (ver src/app/layout.tsx), así que basta con editar
+     el archivo de contenido para cambiar los colores de toda la página. */
+  --forest: #1f3324;
+  --forest-deep: #152219;
+  --sage: #8aa287;
+  --sage-light: #c3d2bb;
+  --beige: #e7dcc3;
+  --cream: #faf5e9;
+  --brown: #8a6a4d;
+  --accent: #e2924a;
+  --accent-soft: #f0b76b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-sage: var(--sage);
+  --color-sage-light: var(--sage-light);
+  --color-beige: var(--beige);
+  --color-cream: var(--cream);
+  --color-brown: var(--brown);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-forest);
+  font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-sage) transparent;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-forest-deep);
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
 }
