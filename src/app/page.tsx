@@ -1,18 +1,14 @@
-import { Leaf, Mountain, Wind } from "lucide-react";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { BirthdayHero } from "@/components/BirthdayHero";
-import { TogetherSection } from "@/components/TogetherSection";
-import { ClueSection } from "@/components/ClueSection";
-import { TrailAnimation } from "@/components/TrailAnimation";
-import { DestinationReveal } from "@/components/DestinationReveal";
-import { RevealCTA } from "@/components/RevealCTA";
+import { Clue } from "@/components/Clue";
+import { Comida } from "@/components/Comida";
+import { Familia } from "@/components/Familia";
 import { GiftReveal } from "@/components/GiftReveal";
-import { FinalMessage } from "@/components/FinalMessage";
+import { TricolorDots } from "@/components/TricolorDots";
 import { giftContent } from "@/data/giftContent";
 
 export default function Home() {
-  const { pause, nature } = giftContent.sections;
-  const { images } = giftContent;
+  const { intro, vale, vasco } = giftContent.sections;
 
   return (
     <>
@@ -21,47 +17,44 @@ export default function Home() {
       {/* 1. Portada */}
       <BirthdayHero />
 
-      {/* 2. Hace tiempo venimos pensando en esto */}
-      <TogetherSection />
-
-      {/* 3. Primera pista: salir de la rutina */}
-      <ClueSection
-        id="pause"
-        kicker={pause.kicker}
-        lines={pause.lines}
-        image={images.friends}
-        layout="card"
-        ariaLabel="Primera pista: salir de la rutina"
+      {/* 2. Introducción del regalo */}
+      <Clue
+        id="intro"
+        ariaLabel="Introducción del regalo"
+        lines={intro.lines}
+        align="center"
+        tone="dark"
+        mark={<TricolorDots />}
       />
 
-      {/* 4. Segunda pista: naturaleza */}
-      <ClueSection
-        id="nature"
-        kicker={nature.kicker}
-        lines={nature.lines}
-        image={images.nature}
-        icons={[
-          <Leaf key="leaf" className="h-5 w-5" aria-hidden="true" />,
-          <Wind key="wind" className="h-5 w-5" aria-hidden="true" />,
-          <Mountain key="mountain" className="h-5 w-5" aria-hidden="true" />,
-        ]}
-        ariaLabel="Segunda pista: naturaleza"
+      {/* 3. Comer bien + Nacional */}
+      <Comida />
+
+      {/* 4. Vale y la cancha */}
+      <Clue
+        id="vale"
+        ariaLabel="Vale y la cancha"
+        lines={vale.lines}
+        comment={vale.comment}
+        align="left"
+        tone="light"
       />
 
-      {/* 5. Tercera pista: movimiento y trekking */}
-      <TrailAnimation />
+      {/* 5. El "vasco fallido" (guiño breve a Xavi) */}
+      <Clue
+        id="vasco"
+        ariaLabel="El vasco fallido"
+        lines={vasco.lines}
+        comment={vasco.comment}
+        align="right"
+        tone="light"
+      />
 
-      {/* 6. Cuarta pista: el destino */}
-      <DestinationReveal />
+      {/* 6. Un lugar conocido, vivido distinto, en familia */}
+      <Familia />
 
-      {/* 7. Antes de la revelación */}
-      <RevealCTA />
-
-      {/* 8. Revelación final */}
+      {/* 7. Revelación final */}
       <GiftReveal />
-
-      {/* 9. Mensaje final */}
-      <FinalMessage />
     </>
   );
 }

@@ -1,21 +1,12 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-export type StorySectionBackground = "cream" | "forest" | "dawn" | "sage" | "minas";
-
-const BACKGROUND_CLASSES: Record<StorySectionBackground, string> = {
-  cream: "bg-cream text-forest",
-  forest: "bg-forest text-cream",
-  dawn: "bg-gradient-to-b from-forest-deep via-forest to-sage text-cream",
-  sage: "bg-gradient-to-b from-beige via-sage-light to-sage text-forest-deep",
-  minas: "bg-gradient-to-b from-accent-soft via-accent to-forest-deep text-cream",
-};
-
 interface StorySectionProps {
   id?: string;
   className?: string;
   contentClassName?: string;
-  background?: StorySectionBackground;
+  /** Color del texto según dónde cae la sección en el degradado de fondo. */
+  tone?: "dark" | "light";
   ariaLabel?: string;
   /** Capa decorativa (por ejemplo OrganicBackground) anclada a toda la sección. */
   decoration?: ReactNode;
@@ -23,15 +14,15 @@ interface StorySectionProps {
 }
 
 /**
- * Bloque base para cada escena de la historia: ocupa (casi) toda la
- * pantalla y centra el contenido, dejando espacio para que el scroll
- * tenga ritmo entre secciones.
+ * Bloque base para cada escena de la historia: ocupa (casi) toda la pantalla
+ * y centra el contenido, dejando ritmo entre secciones. El fondo es
+ * transparente para que se vea el degradado continuo del <main>.
  */
 export function StorySection({
   id,
   className,
   contentClassName,
-  background = "cream",
+  tone = "dark",
   ariaLabel,
   decoration,
   children,
@@ -42,7 +33,7 @@ export function StorySection({
       aria-label={ariaLabel}
       className={cn(
         "relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden px-6 py-24 sm:px-10",
-        BACKGROUND_CLASSES[background],
+        tone === "light" ? "text-white" : "text-ink",
         className,
       )}
     >

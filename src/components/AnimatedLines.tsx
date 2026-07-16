@@ -73,7 +73,7 @@ function withEmphasis(text: string, word?: string): ReactNode {
   return (
     <>
       {before}
-      <span className="font-display italic text-accent-soft">{match}</span>
+      <span className="font-display italic text-gold">{match}</span>
       {after}
     </>
   );

@@ -17,10 +17,10 @@ export function ScrollProgress() {
   return (
     <div
       aria-hidden="true"
-      className="fixed inset-x-0 top-0 z-50 h-[3px] bg-forest/10"
+      className="fixed inset-x-0 top-0 z-50 h-[3px] bg-ink/10"
     >
       <motion.div
-        className="h-full origin-left bg-gradient-to-r from-sage via-accent to-accent-soft"
+        className="h-full origin-left bg-gradient-to-r from-red via-gold to-blue"
         style={{ scaleX }}
       />
     </div>

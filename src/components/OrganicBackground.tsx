@@ -1,12 +1,12 @@
 import { cn } from "@/lib/cn";
 
-type BackgroundVariant = "sage" | "accent" | "cream" | "forest";
+type BackgroundVariant = "red" | "blue" | "white" | "gold";
 
 const VARIANT_BLOBS: Record<BackgroundVariant, [string, string]> = {
-  sage: ["bg-sage/30", "bg-sage-light/40"],
-  accent: ["bg-accent/25", "bg-accent-soft/30"],
-  cream: ["bg-cream/50", "bg-beige/50"],
-  forest: ["bg-forest/25", "bg-sage/20"],
+  red: ["bg-red/20", "bg-gold-soft/25"],
+  blue: ["bg-blue/25", "bg-white/10"],
+  white: ["bg-white/50", "bg-red/10"],
+  gold: ["bg-gold/25", "bg-blue/15"],
 };
 
 interface OrganicBackgroundProps {
@@ -19,7 +19,7 @@ interface OrganicBackgroundProps {
  * fondo sutil en varias escenas para evitar bloques de color plano.
  */
 export function OrganicBackground({
-  variant = "sage",
+  variant = "red",
   className,
 }: OrganicBackgroundProps) {
   const [first, second] = VARIANT_BLOBS[variant];

@@ -7,7 +7,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpengraphImage() {
-  const { theme, birthdayPerson } = giftContent;
+  const { theme, birthdayName } = giftContent;
 
   return new ImageResponse(
     (
@@ -19,41 +19,42 @@ export default function OpengraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: `linear-gradient(135deg, ${theme.forestDeep} 0%, ${theme.forest} 55%, ${theme.sage} 100%)`,
+          background: `linear-gradient(135deg, ${theme.blueDeep} 0%, ${theme.red} 60%, ${theme.gold} 100%)`,
           padding: 80,
         }}
       >
         <div
           style={{
             fontSize: 34,
-            color: theme.accentSoft,
+            color: theme.goldSoft,
             letterSpacing: 4,
             textTransform: "uppercase",
             display: "flex",
           }}
         >
-          Tenemos un regalo para
+          Tenemos algo para vos
         </div>
         <div
           style={{
-            fontSize: 116,
-            color: theme.cream,
+            fontSize: 104,
+            color: theme.white,
             fontWeight: 700,
             marginTop: 20,
+            textAlign: "center",
             display: "flex",
           }}
         >
-          {birthdayPerson}
+          ¡Feliz cumpleaños, {birthdayName}!
         </div>
         <div
           style={{
             fontSize: 30,
-            color: theme.beige,
+            color: theme.snow,
             marginTop: 30,
             display: "flex",
           }}
         >
-          Una pequeña historia con pistas antes de la revelación 🌄
+          Una pequeña historia con pistas antes de la revelación
         </div>
       </div>
     ),

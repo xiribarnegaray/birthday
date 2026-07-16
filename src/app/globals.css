@@ -1,30 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  /* Paleta por defecto — se sobreescribe en tiempo de ejecución desde
-     giftContent.theme (ver src/app/layout.tsx), así que basta con editar
-     el archivo de contenido para cambiar los colores de toda la página. */
-  --forest: #1f3324;
-  --forest-deep: #152219;
-  --sage: #8aa287;
-  --sage-light: #c3d2bb;
-  --beige: #e7dcc3;
-  --cream: #faf5e9;
-  --brown: #8a6a4d;
-  --accent: #e2924a;
-  --accent-soft: #f0b76b;
+  /* Paleta inspirada en Nacional — se sobreescribe en tiempo de ejecución
+     desde giftContent.theme (ver src/app/layout.tsx), así que para cambiar
+     los colores de toda la página basta con editar el archivo de contenido. */
+  --white: #ffffff;
+  --snow: #f6f7fb;
+  --paper: #fffdf5;
+  --red: #d4212a;
+  --red-deep: #a30f18;
+  --blue: #123f9e;
+  --blue-deep: #0a1f52;
+  --ink: #0c1430;
+  --gold: #e6b34a;
+  --gold-soft: #f4d58d;
 }
 
 @theme inline {
-  --color-forest: var(--forest);
-  --color-forest-deep: var(--forest-deep);
-  --color-sage: var(--sage);
-  --color-sage-light: var(--sage-light);
-  --color-beige: var(--beige);
-  --color-cream: var(--cream);
-  --color-brown: var(--brown);
-  --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
+  --color-white: var(--white);
+  --color-snow: var(--snow);
+  --color-paper: var(--paper);
+  --color-red: var(--red);
+  --color-red-deep: var(--red-deep);
+  --color-blue: var(--blue);
+  --color-blue-deep: var(--blue-deep);
+  --color-ink: var(--ink);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
   --font-display: var(--font-fraunces);
   --font-body: var(--font-jakarta);
 }
@@ -35,20 +37,40 @@ html {
 }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-forest);
+  color: var(--color-ink);
   font-family: var(--font-body), system-ui, sans-serif;
   overflow-x: hidden;
 }
 
+/* Degradado continuo que acompaña todo el recorrido: blanco → rojo → azul.
+   Se aplica al <main>, que ocupa toda la altura del documento, por lo que la
+   transición no se corta entre secciones. */
+.story-gradient {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 12%,
+    #fdecef 22%,
+    #f8c2c6 33%,
+    #f2a2a8 37%,
+    #d4212a 41%,
+    #cc1f33 50%,
+    #a51f47 58%,
+    #6f2f74 66%,
+    #45387f 75%,
+    #29316f 85%,
+    #0a1f52 100%
+  );
+}
+
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-sage) transparent;
+  scrollbar-color: var(--color-red) transparent;
 }
 
 ::selection {
-  background: var(--color-accent-soft);
-  color: var(--color-forest-deep);
+  background: var(--color-gold-soft);
+  color: var(--color-ink);
 }
 
 .font-display {
@@ -56,7 +78,7 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-accent);
+  outline: 3px solid var(--color-gold);
   outline-offset: 3px;
   border-radius: 2px;
 }

@@ -1,171 +1,153 @@
 /**
- * Todo el contenido de la experiencia se configura desde este archivo.
- * Cambiá los textos, nombres, imágenes y enlaces acá — no hace falta tocar
- * los componentes para actualizar el regalo.
+ * ─────────────────────────────────────────────────────────────────────────
+ *  CONFIGURACIÓN DEL REGALO
+ * ─────────────────────────────────────────────────────────────────────────
+ *  Todo el contenido de la experiencia se edita desde este archivo.
+ *  No hace falta tocar los componentes para cambiar textos, nombres o enlaces.
+ *
+ *  ▸ Nombre del cumpleañero  → constante `birthdayName` (abajo).
+ *  ▸ Enlace al vale real      → constante `realVoucherUrl` (abajo).
+ *  ▸ Escudo y caricatura      → objeto `images` (abajo). Los archivos van en
+ *                               /public/images/logo-nacional.png y
+ *                               /public/images/caricatura-nacional.png
+ * ─────────────────────────────────────────────────────────────────────────
  */
 
-export const giftContent = {
-  /** Nombre de la cumpleañera (se usa en varias secciones). */
-  birthdayPerson: "Pepi",
+/** 👉 Cambiá el nombre del cumpleañero acá (por ejemplo "Silvio"). */
+export const birthdayName = "Elbio";
 
-  /** Quienes regalan la experiencia. */
+/**
+ * 👉 Enlace al vale/reserva real. Dejalo como "" mientras no exista.
+ *    Cuando tenga una URL, aparecerá automáticamente el botón
+ *    "Ver reserva o vale original" debajo del botón de descarga.
+ */
+export const realVoucherUrl = "";
+
+export const giftContent = {
+  birthdayName,
+  realVoucherUrl,
+
+  /** Quiénes regalan la experiencia. El orden se respeta tal cual. */
   from: ["Vale", "Xavi"],
 
-  /** Fecha del cumpleaños (texto libre, se muestra en detalles pequeños). */
-  birthdayDateLabel: "7 de Julio",
-
-  /** Ubicación del destino sorpresa. */
-  location: {
-    city: "Minas",
-    department: "Lavalleja",
-    country: "Uruguay",
-    full: "Minas, Lavalleja",
-  },
-
-  /** Paleta de colores principal. Se aplica como variables CSS globales. */
+  /**
+   * Paleta inspirada en Nacional (blanco → rojo → azul).
+   * Se aplica como variables CSS globales desde src/app/layout.tsx.
+   */
   theme: {
-    forest: "#1f3324",
-    forestDeep: "#152219",
-    sage: "#8aa287",
-    sageLight: "#c3d2bb",
-    beige: "#e7dcc3",
-    cream: "#faf5e9",
-    brown: "#8a6a4d",
-    accent: "#e2924a",
-    accentSoft: "#f0b76b",
+    white: "#ffffff",
+    snow: "#f6f7fb",
+    paper: "#fffdf5",
+    red: "#d4212a",
+    redDeep: "#a30f18",
+    blue: "#123f9e",
+    blueDeep: "#0a1f52",
+    ink: "#0c1430",
+    gold: "#e6b34a",
+    goldSoft: "#f4d58d",
   },
 
-  /** Metadatos para compartir la página (título, descripción, OG). */
+  /** Metadatos para compartir la página. */
   meta: {
-    title: "Pepi's birthday gift",
+    title: `¡Feliz cumpleaños, ${birthdayName}!`,
     description:
-      "Una pequeña historia con pistas antes de descubrir el regalo de cumpleaños de Pepi. Deslizá para descubrirlo.",
-    ogImageAlt: "Sierras de Minas, Lavalleja, al amanecer",
+      "Una pequeña historia con pistas antes de descubrir el regalo. Deslizá para descubrirlo.",
   },
 
-  /** Imágenes usadas a lo largo de la historia. Podés usar rutas locales
-   * dentro de /public/images o URLs externas (configurando next.config.ts). */
+  /** Recursos gráficos. Los archivos van en /public. */
   images: {
-    hero: {
-      src: "/images/hero.svg",
-      alt: "Cielo al amanecer sobre las sierras",
+    escudo: {
+      src: "/images/logo-nacional.png",
+      alt: "Escudo de Nacional",
+      // Proporción del archivo (para reservar espacio y no deformar).
+      width: 600,
+      height: 600,
     },
-    friends: {
-      src: "/images/friends.svg",
-      alt: "Ruta abierta hacia el horizonte, lista para una escapada",
+    caricatura: {
+      src: "/images/caricatura-nacional.png",
+      alt:
+        "Caricatura de Elbio, Ana y Vale sacándose una selfie frente al Gran Parque Central mientras Xavi intenta escapar.",
+      width: 1122,
+      height: 1402,
     },
-    nature: {
-      src: "/images/nature.svg",
-      alt: "Colinas verdes y líneas topográficas al amanecer",
-    },
-    trekking: {
-      src: "/images/trekking.svg",
-      alt: "Sendero serpenteante entre cerros",
-    },
-    minas: {
-      src: "/images/minas.svg",
-      alt: "Sierras de Minas, Lavalleja",
-    },
-    airbnb: {
-      src: "/images/airbnb.svg",
-      alt: "Alojamiento entre las sierras de Minas",
-    },
-  },
-
-  /** Datos del alojamiento (el regalo real). */
-  airbnb: {
-    title: "Casa de sierra en Minas",
-    url: "https://www.airbnb.com/rooms/1639807967734664458?photo_id=1688729784&source_impression_id=p3_1783720292_P3rIwpPE6CdmkSjS&previous_page_section_name=1000&modal=PHOTO_TOUR_SCROLLABLE",
-    nightsLabel: "1 noche",
-    description: "Una escapada para disfrutar juntas",
-    datesNote: "Las fechas las coordinamos juntas.",
-    ctaLabel: "Ver el lugar",
   },
 
   /** Textos de cada escena de la historia. */
   sections: {
+    // 1. Portada
     hero: {
       eyebrow: "Tenemos algo para vos…",
       title: (name: string) => `¡Feliz cumpleaños, ${name}!`,
-      subtitle: "Este año no queríamos regalarte simplemente una cosa.",
       scrollHint: "Deslizá para descubrirlo",
     },
 
-    together: {
-      lines: [
-        "Hace tiempo venimos hablando de hacer algo juntas…",
-        "Lo pensamos.",
-        "Lo imaginamos.",
-        "Lo postergamos alguna que otra vez…",
-        "Pero esta vez decidimos convertirlo en un plan de verdad.",
-      ],
-      emphasisWord: "juntas",
-    },
+    /*
+     * PISTAS
+     * Cada sección comunica UNA sola idea y vive directamente sobre el
+     * degradado (sin recuadros blancos). Debajo de cada pista va un pequeño
+     * remate en rojo (`comment`). Orden:
+     *   1. intro    → introducción del regalo
+     *   2. comida   → mezcla de comer bien + Nacional
+     *   3. vale     → siempre le insistís a Vale para ir a la cancha
+     *   4. vasco    → guiño breve al "vasco fallido" (Xavi)
+     *   5. familia  → vivir un lugar conocido, distinto, en familia
+     *   6. reveal   → el vale (única tarjeta especial)
+     */
 
-    pause: {
-      kicker: "Primera pista",
+    // 1. Introducción del regalo
+    intro: {
       lines: [
-        "Una pequeña pausa.",
-        "Lejos de la rutina.",
-        "Un lugar para desconectar…",
-        "…y volver a conectar.",
-      ],
-    },
-
-    nature: {
-      kicker: "Segunda pista",
-      lines: [
-        "Sabemos cuánto te gusta estar en contacto con la naturaleza.",
-        "Aire fresco.",
-        "Paisajes.",
-        "Silencio.",
-        "Y alguna aventura en el medio.",
+        "Este año queríamos regalarte algo especial.",
+        "Algo que combinara dos cosas que sabemos que te gustan mucho…",
       ],
     },
 
-    trekking: {
-      kicker: "Tercera pista",
-      lines: [
-        "Prepará calzado cómodo.",
-        "Probablemente caminemos bastante.",
-        "Puede haber senderos…",
-        "Subidas…",
-        "Y vistas que van a valer la pena.",
-      ],
+    // 2. Comer bien + Nacional
+    comida: {
+      left: "Comer bien",
+      right: "Nacional",
+      comment:
+        "No es una camiseta, no es una botella… y tampoco pensamos cocinar nosotros, por suerte.",
     },
 
-    destination: {
-      kicker: "Cuarta pista",
-      intro: "Tenemos un destino en mente.",
-      name: "Minas.",
-      description: "Sierras, naturaleza y unos días para compartir juntas.",
+    // 3. Vale y la cancha
+    vale: {
+      lines: [
+        "Siempre le insistís a Vale para que vaya a la cancha.",
+        "Y Vale… nunca te dio mucha bola.",
+      ],
+      comment: "Esta vez la vas a tener más cerca del Parque que nunca.",
     },
 
-    beforeReveal: {
+    // 4. El "vasco fallido" (guiño breve a Xavi)
+    vasco: {
       lines: [
-        "Porque los mejores regalos no siempre entran en una caja.",
-        "A veces son un lugar.",
-        "Un momento.",
-        "Una aventura.",
-        "Y las personas con quienes la compartís.",
+        "Siempre decís que Xavi es un vasco fallido porque no es de Nacional…",
+        "Así que este regalo va a empezar el proceso de arreglar eso.",
       ],
-      closingLines: ["Así que esta vez…", "Tenemos plan."],
+      comment:
+        "Primera etapa del tratamiento: exposición controlada al Gran Parque Central.",
+    },
+
+    // 5. Un lugar conocido, vivido distinto, en familia
+    familia: {
+      lead: "Capaz que este lugar no te sea del todo nuevo…",
+      linePrefix: "Pero esta vez lo vamos a vivir distinto: en ",
+      emphasis: "familia",
+      comment: "Ya falta muy poco para descubrir el regalo.",
       ctaLabel: "Descubrir el regalo",
     },
 
-    giftReveal: {
-      preTitle: "¡Nos vamos juntas!",
-      title: (city: string) => `Tu regalo es una estadía en ${city}.`,
-    },
-
-    finalMessage: {
-      lines: [
-        "Esperamos que este regalo se convierta en uno de esos recuerdos que vamos a seguir mencionando durante mucho tiempo.",
-        "Feliz cumpleaños.",
-        "Te queremos mucho.",
-      ],
-      signaturePrefix: "Con amor,",
-      restartLabel: "Volver a ver la sorpresa",
+    // 6. Revelación final
+    reveal: {
+      voucherHeader: "Este vale incluye",
+      title: "Una merienda para cuatro",
+      subtitle: "en el Gran Parque Central",
+      signaturePrefix: "Con cariño,",
+      footnote: "Fecha a coordinar. Hambre obligatoria.",
+      downloadLabel: "Descargar el vale",
+      realVoucherLabel: "Ver reserva o vale original",
+      restartLabel: "Volver al inicio",
     },
   },
 } as const;

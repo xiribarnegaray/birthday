@@ -17,7 +17,7 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const { theme, meta, birthdayPerson } = giftContent;
+const { theme, meta, birthdayName } = giftContent;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: theme.forest,
+  themeColor: theme.red,
   width: "device-width",
   initialScale: 1,
 };
@@ -48,15 +48,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const themeStyle = {
-    "--forest": theme.forest,
-    "--forest-deep": theme.forestDeep,
-    "--sage": theme.sage,
-    "--sage-light": theme.sageLight,
-    "--beige": theme.beige,
-    "--cream": theme.cream,
-    "--brown": theme.brown,
-    "--accent": theme.accent,
-    "--accent-soft": theme.accentSoft,
+    "--white": theme.white,
+    "--snow": theme.snow,
+    "--paper": theme.paper,
+    "--red": theme.red,
+    "--red-deep": theme.redDeep,
+    "--blue": theme.blue,
+    "--blue-deep": theme.blueDeep,
+    "--ink": theme.ink,
+    "--gold": theme.gold,
+    "--gold-soft": theme.goldSoft,
   } as React.CSSProperties;
 
   return (
@@ -65,15 +66,19 @@ export default function RootLayout({
       className={`${fraunces.variable} ${jakarta.variable} h-full antialiased`}
       style={themeStyle}
     >
-      <body className="min-h-full flex flex-col bg-cream text-forest">
+      <body className="min-h-full flex flex-col">
         <MotionConfig reducedMotion="user">
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-forest focus:px-4 focus:py-2 focus:text-cream"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-blue-deep focus:px-4 focus:py-2 focus:text-white"
           >
             Saltar al contenido
           </a>
-          <main id="main-content" aria-label={`Regalo de cumpleaños para ${birthdayPerson}`}>
+          <main
+            id="main-content"
+            aria-label={`Regalo de cumpleaños para ${birthdayName}`}
+            className="story-gradient"
+          >
             {children}
           </main>
         </MotionConfig>
